@@ -66,7 +66,14 @@ export default class App extends React.Component {
       Alert.alert(
         'Sorry',
         "Sorry about that crash, we're working on a solution",
-        [{text: 'Okay', onPress: () => console.log('pressed')}],
+        [
+          {
+            text: 'Okay',
+            onPress: () => {
+              console.log('pressed');
+            },
+          },
+        ],
       );
     }
   }
@@ -87,13 +94,13 @@ export default class App extends React.Component {
           onChangeText={riskFreeRate => this.setState({riskFreeRate})}
         />
         <TextInput
-          placeholder="Amount you want to save"
+          placeholder="Amount you are saving"
           style={styles.textBox}
           keyboardType="decimal-pad"
           onChangeText={amount => this.setState({amount})}
         />
         <TextInput
-          placeholder="For how long (in years) will you save?"
+          placeholder="For how long (in years) will you save it?"
           style={styles.textBox}
           keyboardType="decimal-pad"
           onChangeText={timeInYears => this.setState({timeInYears})}
@@ -110,7 +117,7 @@ export default class App extends React.Component {
         />
         <Text style={styles.label}>
           {this.state.timeInYears} years from now you will still have $
-          {this.state.amount} but it will only be worth $
+          {this.state.amount}, but it will only be worth $
           {this.state.afterInflation}.
         </Text>
         <Text style={styles.label}>
@@ -141,7 +148,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    marginTop: 10,
+    marginBottom: 10,
   },
   scrollView: {
     backgroundColor: Colors.lighter,
